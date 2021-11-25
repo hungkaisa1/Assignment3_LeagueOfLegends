@@ -1,1 +1,22 @@
 <h1>Champions</h1>
+{{#if user}}
+    <a href="/champions/create">Add a new champion</a>
+    <br/>
+{{/if}}
+<a href="/skins">Show all skins</a>
+
+<section class="row card-group">
+    {{#each champions}}
+        <div class="col-sm-6 col-lg-4 mb-3">
+            <div class="card mb-4 text-center h-100">
+                <div class="card-body">
+                    <h5>{{this.champion_name}}</h5>
+                    {{#if ../user}}
+                        <a href="champions/edit/{{this._id}}" class="btn btn-info text-light">Edit</a>
+                        <a href="champions/delete/{{this._id}}" class="btn btn-danger text-light" onclick="return confirmDelete()">Delete</a>
+                    {{/if}}
+                </div>
+            </div>
+        </div>
+    {{/each}}
+</section>

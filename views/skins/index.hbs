@@ -1,1 +1,21 @@
 <h1>Skins</h1>
+
+{{#if user}}
+    <a href="/skins/create">Add a new skin</a>
+{{/if}}
+
+<section class="row card-group">
+    {{#each skins}}
+        <div class="col-sm-6 col-lg-4 mb-3">
+            <div class="card mb-4 text-center h-100">
+                <div class="card-body">
+                    <h5>{{this.skin_name}}</h5>
+                    {{#if ../user}}
+                        <a href="skins/edit/{{this._id}}" class="btn btn-info text-light">Edit</a>
+                        <a href="skins/delete/{{this._id}}" class="btn btn-danger text-light" onclick="return confirmDelete()">Delete</a>
+                    {{/if}}
+                </div>
+            </div>
+        </div>
+    {{/each}}
+</section>
