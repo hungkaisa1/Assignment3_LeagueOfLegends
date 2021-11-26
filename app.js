@@ -40,6 +40,18 @@ var skinRouter = require('./controllers/skins');
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 
+//multer for images
+const multer = require('multer')
+const storage = multer.diskStorage({
+    destination: (req, file, cb) => {
+        cb(null, 'public/images')
+    },
+    filename: (req, file, cb) => {
+        console.log(file)
+        cb(null, Date.now() + path.extname(file.originalname))
+    }
+})
+
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));

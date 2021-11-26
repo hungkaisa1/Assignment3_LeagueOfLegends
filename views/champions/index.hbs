@@ -3,20 +3,37 @@
     <a href="/champions/create">Add a new champion</a>
     <br/>
 {{/if}}
-<a href="/skins">Show all skins</a>
+<div class="table-responsive">
+    <table class="table sortable table-striped text-center">
+        <thead>
+        <tr class="table-dark">
+            <th>Champion Name</th>
+            <th>Image</th>
+            <th>Classes</th>
+            <th>Release Date</th>
+            <th>Blue Essence</th>
+            <th>RP</th>
+            <th>Action</th>
 
-<section class="row card-group">
+        </tr>
+        </thead>
     {{#each champions}}
-        <div class="col-sm-6 col-lg-4 mb-3">
-            <div class="card mb-4 text-center h-100">
-                <div class="card-body">
-                    <h5>{{this.champion_name}}</h5>
+                <tbody>
+                    <tr>
+                        <td>{{this.champion_name}}</td>
+                        <td><img src="/images/{{this.champion_img}}" alt="..."></td>
+                        <td>{{this.champion_classes}}</td>
+                        <td>{{this.champion_release_date}}</td>
+                        <td>{{this.champion_blue_essence}}</td>
+                        <td>{{this.champion_rp}}</td>
                     {{#if ../user}}
-                        <a href="champions/edit/{{this._id}}" class="btn btn-info text-light">Edit</a>
-                        <a href="champions/delete/{{this._id}}" class="btn btn-danger text-light" onclick="return confirmDelete()">Delete</a>
+                        <td><a href="champions/edit/{{this._id}}" class="btn btn-info text-light"><i class="fa fa-edit fa-lg mx-1"></i></a>
+                            <a href="champions/delete/{{this._id}}" class="btn btn-danger text-light" onclick="return confirmDelete()"><i class="fa fa-trash" aria-hidden="true"></i></a>
+                            <a href="skins" class="btn btn-warning text-light"><i class="fas fa-tshirt"></i> </a>
+                        </td>
                     {{/if}}
-                </div>
-            </div>
-        </div>
+                    </tr>
+                </tbody>
     {{/each}}
-</section>
+    </table>
+</div>

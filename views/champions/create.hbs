@@ -1,9 +1,62 @@
 <h1>Add a new Champions</h1>
 
-<form method="post">
+<form method="post" enctype="multipart/form-data" action="/champions/create">
+        <!-- Champion name -->
     <fieldset class="form-group">
         <label for="name" class="control-label col-2"> Name: *</label>
         <input class="form-control" name="name" id="name" required/>
+    </fieldset>
+        <!-- Champion Classes -->
+    <fieldset>
+        <label for="classes" class="control-label col-2"> Choose classes: *</label>
+        <select class="form-control" name="classes" id="classes" required>
+            <option value="Artillery">Artillery</option>
+            <option value="Assassin">Assassin</option>
+            <option value="Battlemage">Battlemage</option>
+            <option value="Burst">Burst</option>
+            <option value="Catcher">Catcher</option>
+            <option value="Diver">Diver</option>
+            <option value="Enchanter">Enchanter</option>
+            <option value="Juggernaut">Juggernaut</option>
+            <option value="Marksman">Marksman</option>
+            <option value="Skirmisher">Skirmisher</option>
+            <option value="Specialist">Specialist</option>
+            <option value="Vanguard">Vanguard</option>
+            <option value="Warden">Warden</option>
+
+        </select>
+    </fieldset>
+        <!-- Champion Release Date -->
+    <fieldset>
+        <label for="release" class="control-label col-2"> Release Date: *</label>
+        <input class="form-control" name="release" id="release" required/>
+    </fieldset>
+        <!-- Champion Blue Essence -->
+    <fieldset>
+        <label for="essence" class="control-label col-2"> Blue Essence: *</label>
+        <select class="form-control" name="essence" id="essence" required>
+            <option value="450">450</option>
+            <option value="1350">1350</option>
+            <option value="3150">3150</option>
+            <option value="4800">4800</option>
+            <option value="6300">6300</option>
+        </select>
+    </fieldset>
+        <!-- Champion RP -->
+    <fieldset>
+        <label for="rp" class="control-label col-2"> RP: *</label>
+        <select class="form-control" name="rp" id="rp" required>
+            <option value="260">260</option>
+            <option value="585">585</option>
+            <option value="790">790</option>
+            <option value="880">880</option>
+            <option value="975">975</option>
+        </select>
+    </fieldset>
+        <!-- Image -->
+    <fieldset>
+        <label for="image">Upload Image</label>
+        <input type="file" name="image" id="image" class="form-control-file">
     </fieldset>
     <div class="offset-2">
         <button class="btn btn-primary">Save</button>

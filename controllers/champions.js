@@ -17,10 +17,34 @@ function authCheck(req, res, next){
     if(req.isAuthenticated()){
         return next()
     }
-
     // if no user found, go to login
     res.redirect('/login')
 }
+
+// Multer - Upload image
+const multer = require('multer')
+
+// Define storage for the images
+const storage = multer.diskStorage({
+    //destination for files
+    destination: function (request, file, callback){
+        callback(null, './public/images')
+    },
+    // Add back the extension
+    filename: function (request, file, callback){
+        callback(null,Date.now() + file.originalname)
+    }
+})
+
+
+// Upload parameters for multer
+const upload = multer({
+    storage: storage,
+    limits:{
+        fieldSize: 1024*1024*3
+    }
+})
+
 
 //GET: /champions => show index view
 router.get('', (req, res) =>{
@@ -49,10 +73,15 @@ router.get('/create', authCheck, (req, res) =>{
 })
 
 //POST: //champions/create => Process from submission & save new champion document
-router.post('/create', authCheck, (req, res) =>{
+router.post('/create', upload.single('image'), authCheck, (req, res) =>{
     // use Mongoose model to create a new Champion document
     Champion.create({
-        champion_name: req.body.name
+        champion_name: req.body.name,
+        champion_img: req.file.filename,
+        champion_classes: req.body.classes,
+        champion_release_date: req.body.release,
+        champion_blue_essence: req.body.essence,
+        champion_rp: req.body.rp
     }, (err, newChampion) =>{
         if(err){
             console.log(err)
@@ -106,7 +135,14 @@ router.post('/edit/:_id', authCheck, (req, res) => {
     let _id = req.params._id
 
     // Use Mongoose findByIdAndUpdate to save changes to existing doc
-    Champion.findByIdAndUpdate({_id: _id}, {'champion_name': req.body.name}, null, (err, champion) => {
+    Champion.findByIdAndUpdate({_id: _id}, {
+        'champion_name': req.body.name,
+        'champion_classes': req.body.classes,
+        'champion_release_date': req.body.release,
+        'champion_blue_essence': req.body.essence,
+        'champion_rp': req.body.rp
+
+    }, null, (err, champion) => {
         if(err){
             console.log(err)
             res.end(err)
