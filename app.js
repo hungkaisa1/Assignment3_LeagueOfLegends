@@ -5,6 +5,9 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var app = express();
 
+//global vars for various used (db connection / passport config)
+const globals = require('./config/globals')
+
 // passport for auth, express-session for session mgmt
 const passport = require('passport')
 const session = require('express-session')
@@ -28,6 +31,35 @@ passport.use(User.createStrategy())
 passport.serializeUser(User.serializeUser())
 passport.deserializeUser(User.deserializeUser())
 
+// passport Github config
+const gitHub = require('passport-github2').Strategy;
+
+
+passport.use(new gitHub({
+        clientID: globals.gitHub.clientID,
+        clientSecret: globals.gitHub.clientSecret,
+        callBack: globals.gitHub.callbackURL
+    },async (accessToken, refreshToken, profile, callback) => {
+        try{
+            //check if Github user already exists in our db
+            const user = await User.findOne({oauthId: profile.id })
+            if(user){
+                return callback(null, user) // user already exist so return user object and continue
+            }else{
+                //create a new Github user in our db and return the new user object to the calling function
+                const newUser = new User({
+                    username: profile.username,
+                    oauthProvider: 'GitHub',
+                    oauthId: profile.id
+                })
+                const savedUser = await newUser.save()
+                callback(null, savedUser)
+            }
+        }catch(err){
+            callback(err)
+        }
+    }
+))
 
 var indexRouter = require('./controllers/index');
 var usersRouter = require('./controllers/users');
@@ -65,7 +97,7 @@ app.use('/skins', skinRouter);
 
 //mongodb connect w/mongoose
 const mongoose =  require('mongoose')
-const globals = require('./config/globals')
+
 
 
 mongoose.connect(globals.db, {

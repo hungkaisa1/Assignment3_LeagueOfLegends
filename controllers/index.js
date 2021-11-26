@@ -73,5 +73,18 @@ router.get('/logout', (req, res) =>{
   res.redirect('/login')
 })
 
+//GET: /github
+router.get('/github', passport.authenticate('github', {
+  scope: ['user.email']
+}))
+
+//GET: /github/callback
+router.get('/github/callback', passport.authenticate('github', {
+  failureRedirect: '/login'
+}), (req, res) =>{
+  res.redirect('/champions')
+})
+
+
 
 module.exports = router;
