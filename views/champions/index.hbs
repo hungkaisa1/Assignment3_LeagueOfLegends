@@ -1,6 +1,6 @@
 <h1>Champions</h1>
 {{#if user}}
-    <a href="/champions/create">Add a new champion</a>
+    <h5><a href="/champions/create">Add a new champion</a></h5>
     <br/>
 {{/if}}
 <div class="table-responsive">
@@ -20,7 +20,7 @@
             <tbody>
             <tr>
                 <td>{{this.champion_name}}</td>
-                <td><img src="/images/{{this.champion_img}}" alt="..."></td>
+                <td><img id="default_img_size" src="/images/{{this.champion_img}}" alt="..."></td>
                 <td>{{this.champion_classes}}</td>
                 <td>{{this.champion_release_date}}</td>
                 <td>{{this.champion_blue_essence}}</td>

@@ -1,3 +1,26 @@
+<div class="champ_img">
+    <img src="/images/{{champion.champion_img}}" alt="...">
+    <h1>{{champion.champion_name}}</h1>
+</div>
+<hr id="hr">
+
+<section class="row card-group">
+    {{#each champion.skins}}
+        <div class="col-md-6 offset-md-3">
+            <div class="card col-lg h-100">
+                <div class="card-body">
+                    <h2>{{this.skin_name}}</h2>
+                    <img id="default_skin_img" src="/images/{{this.skin_img}}" alt="...">
+                    <h4>Type: {{this.skin_type}}</h4>
+                    <h4>Release Date: {{this.skin_release_date}}</h4>
+                    <h4>RP: {{this.skin_rp}}</h4>
+                </div>
+            </div>
+        </div>
+    {{/each}}
+</section>
+<hr id="hr">
+
 <h1>Add a new Skin for {{champion.champion_name}}</h1>
 <form method="post" enctype="multipart/form-data" action="/champions/add-skins/{{champion._id}}">
     <!-- Skin Name -->
@@ -5,7 +28,6 @@
         <label for="skin_name" class="control-label col-2"> Name: *</label>
         <input class="form-control" name="skin_name" id="skin_name" required/>
     </fieldset>
-
     <!-- Skin Release Date -->
     <fieldset>
         <label for="skin_release_date" class="control-label col-2"> Release Date: *</label>
@@ -14,45 +36,26 @@
     <!-- Skin Type -->
     <fieldset>
         <label for="skin_type" class="control-label col-2"> Type: *</label>
-        <input class="form-control" name="skin_type" id="skin_type" required/>
+        <select class="form-control" name="skin_type" id="skin_type" required>
+            <option value="Ultimate">Ultimate</option>
+            <option value="Mythic">Mythic</option>
+            <option value="Legendary">Legendary</option>
+            <option value="Epic">Epic</option>
+            <option value="Legacy">Legacy</option>
+        </select>
     </fieldset>
     <!-- Skin RP -->
     <fieldset>
         <label for="skin_rp" class="control-label col-2"> RP: *</label>
-        <input class="form-control" name="skin_rp" id="skin_rp" required/>
+        <input class="form-control" name="skin_rp" id="skin_rp" type="number" required min="0"/>
     </fieldset>
     <!-- Image -->
     <fieldset>
         <label for="image">Upload Image</label>
-        <input type="file" name="image" id="image" class="form-control-file">
+        <input type="file" name="image" id="image" class="form-control-file" required>
     </fieldset>
     <div class="offset-2">
         <button class="btn btn-primary">Save</button>
     </div>
 </form>
 </section>
-
-<div class="table-responsive">
-    <table class="table sortable table-striped text-center">
-        <thead>
-        <tr class="table-dark">
-            <th>Skin Name</th>
-            <th>Image</th>
-            <th>Type</th>
-            <th>Release Date</th>
-            <th>RP</th>
-        </tr>
-        </thead>
-        {{#each champion.skins}}
-            <tbody>
-            <tr>
-                <td>{{this.skin_name}}</td>
-                <td><img src="/images/{{this.skin_img}}" alt="..."></td>
-                <td>{{this.skin_type}}</td>
-                <td>{{this.skin_release_date}}</td>
-                <td>{{this.skin_rp}}</td>
-            </tr>
-            </tbody>
-        {{/each}}
-    </table>
-</div>

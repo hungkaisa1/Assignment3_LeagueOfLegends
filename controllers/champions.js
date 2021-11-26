@@ -67,7 +67,7 @@ router.get('', (req, res) =>{
 // GET: /champions/create => show new champion form. Now call authCheck first
 router.get('/create', authCheck, (req, res) =>{
     res.render('champions/create', {
-        title: 'Create a new champion',
+        title: 'Create Page',
         user: req.user
     })
 })
@@ -121,7 +121,7 @@ router.get('/edit/:_id', authCheck,(req, res,next) => {
         }else{
             //load the edit view and pass the selected Champion doc to it for display
             res.render('champions/edit',{
-                title: 'Champion Details',
+                title: 'Edit Page',
                 champion: champion,
                 user: req.user
             })
@@ -166,7 +166,7 @@ router.get('/privateSkin/:_id', authCheck,(req, res,next) => {
         }else{
             //load the edit view and pass the selected Champion doc to it for display
             res.render('champions/privateSkin',{
-                title: 'Skin Details',
+                title: 'Skin Page',
                 champion: champion,
                 user: req.user
             })

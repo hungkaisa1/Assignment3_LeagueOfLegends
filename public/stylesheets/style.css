@@ -1,6 +1,7 @@
 body {
   padding: 50px;
   font: 16px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: #EFFFFF;
 }
 
 a {
@@ -9,4 +10,46 @@ a {
 
 .table-responsive{
   font-size: 18px;
+}
+
+#default_img_size{
+  width: 64px;
+  height: 64px;
+}
+.champ_img {
+  text-align: center;
+}
+.champ_img img {
+  width: 250px;
+  height: 250px;
+  display: block;
+  margin: 15px auto 15px;
+}
+
+#hr {
+  height: 2px;
+  border-width: 0;
+  color: grey;
+  background-color: grey;
+  margin-bottom: 20px;
+
+}
+
+#default_skin_img {
+  width: 75%;
+  height: 350px;
+  display: block;
+  margin: 15px auto 15px;
+}
+
+.card-body {
+  text-align: center;
+}
+
+.card-group {
+  margin-bottom: 20px;
+}
+
+.card-body {
+  background-color: #E2E2E2;
 }
