@@ -23,6 +23,7 @@ function authCheck(req, res, next){
 
 // Multer - Upload image
 const multer = require('multer')
+const Skin = require("../models/champion");
 
 // Define storage for the images
 const storage = multer.diskStorage({
@@ -35,7 +36,6 @@ const storage = multer.diskStorage({
         callback(null,Date.now() + file.originalname)
     }
 })
-
 
 // Upload parameters for multer
 const upload = multer({
@@ -152,6 +152,52 @@ router.post('/edit/:_id', authCheck, (req, res) => {
     })
 })
 
+
+// GET: /champions/privateSkin/abc123
+router.get('/privateSkin/:_id', authCheck,(req, res,next) => {
+    // read the _id from url param
+    let _id = req.params._id
+
+    //query the db for the selected Champion document
+    Champion.findById(_id, (err, champion) => {
+        if(err){
+            console.log(err)
+            res.end(err)
+        }else{
+            //load the edit view and pass the selected Champion doc to it for display
+            res.render('champions/privateSkin',{
+                title: 'Skin Details',
+                champion: champion,
+                user: req.user
+            })
+        }
+    })
+})
+
+//POST: /champions/add-album/abc123 => save new album to existing champion doc in nested skins array
+router.post('/add-skins/:_id',upload.single('image'), authCheck, (req, res) =>{
+    //get selected champion
+    Champion.findById(req.params._id, (err, champion) => {
+        if(err){
+            res.send(err)
+        }else{
+            champion.skins.push({
+                skin_name: req.body.skin_name,
+                skin_img: req.file.filename,
+                skin_release_date: req.body.skin_release_date,
+                skin_type: req.body.skin_type,
+                skin_rp: req.body.skin_rp
+            })
+            champion.save((err, champion) =>{
+                if(err){
+                    res.send(err)
+                }else{
+                    res.redirect('/champions/privateSkin/' + req.params._id)
+                }
+            })
+        }
+    })
+})
 
 // make public
 module.exports = router

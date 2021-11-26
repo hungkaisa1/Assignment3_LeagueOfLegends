@@ -1,0 +1,58 @@
+<h1>Add a new Skin for {{champion.champion_name}}</h1>
+<form method="post" enctype="multipart/form-data" action="/champions/add-skins/{{champion._id}}">
+    <!-- Skin Name -->
+    <fieldset class="form-group">
+        <label for="skin_name" class="control-label col-2"> Name: *</label>
+        <input class="form-control" name="skin_name" id="skin_name" required/>
+    </fieldset>
+
+    <!-- Skin Release Date -->
+    <fieldset>
+        <label for="skin_release_date" class="control-label col-2"> Release Date: *</label>
+        <input class="form-control" name="skin_release_date" id="skin_release_date" required/>
+    </fieldset>
+    <!-- Skin Type -->
+    <fieldset>
+        <label for="skin_type" class="control-label col-2"> Type: *</label>
+        <input class="form-control" name="skin_type" id="skin_type" required/>
+    </fieldset>
+    <!-- Skin RP -->
+    <fieldset>
+        <label for="skin_rp" class="control-label col-2"> RP: *</label>
+        <input class="form-control" name="skin_rp" id="skin_rp" required/>
+    </fieldset>
+    <!-- Image -->
+    <fieldset>
+        <label for="image">Upload Image</label>
+        <input type="file" name="image" id="image" class="form-control-file">
+    </fieldset>
+    <div class="offset-2">
+        <button class="btn btn-primary">Save</button>
+    </div>
+</form>
+</section>
+
+<div class="table-responsive">
+    <table class="table sortable table-striped text-center">
+        <thead>
+        <tr class="table-dark">
+            <th>Skin Name</th>
+            <th>Image</th>
+            <th>Type</th>
+            <th>Release Date</th>
+            <th>RP</th>
+        </tr>
+        </thead>
+        {{#each champion.skins}}
+            <tbody>
+            <tr>
+                <td>{{this.skin_name}}</td>
+                <td><img src="/images/{{this.skin_img}}" alt="..."></td>
+                <td>{{this.skin_type}}</td>
+                <td>{{this.skin_release_date}}</td>
+                <td>{{this.skin_rp}}</td>
+            </tr>
+            </tbody>
+        {{/each}}
+    </table>
+</div>

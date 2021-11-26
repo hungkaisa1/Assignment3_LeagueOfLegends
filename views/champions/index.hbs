@@ -14,26 +14,25 @@
             <th>Blue Essence</th>
             <th>RP</th>
             <th>Action</th>
-
         </tr>
         </thead>
-    {{#each champions}}
-                <tbody>
-                    <tr>
-                        <td>{{this.champion_name}}</td>
-                        <td><img src="/images/{{this.champion_img}}" alt="..."></td>
-                        <td>{{this.champion_classes}}</td>
-                        <td>{{this.champion_release_date}}</td>
-                        <td>{{this.champion_blue_essence}}</td>
-                        <td>{{this.champion_rp}}</td>
-                    {{#if ../user}}
-                        <td><a href="champions/edit/{{this._id}}" class="btn btn-info text-light"><i class="fa fa-edit fa-lg mx-1"></i></a>
-                            <a href="champions/delete/{{this._id}}" class="btn btn-danger text-light" onclick="return confirmDelete()"><i class="fa fa-trash" aria-hidden="true"></i></a>
-                            <a href="skins" class="btn btn-warning text-light"><i class="fas fa-tshirt"></i> </a>
-                        </td>
-                    {{/if}}
-                    </tr>
-                </tbody>
-    {{/each}}
+        {{#each champions}}
+            <tbody>
+            <tr>
+                <td>{{this.champion_name}}</td>
+                <td><img src="/images/{{this.champion_img}}" alt="..."></td>
+                <td>{{this.champion_classes}}</td>
+                <td>{{this.champion_release_date}}</td>
+                <td>{{this.champion_blue_essence}}</td>
+                <td>{{this.champion_rp}}</td>
+                {{#if ../user}}
+                    <td><a href="champions/edit/{{this._id}}" class="btn btn-info text-light"><i class="fa fa-edit fa-lg mx-1"></i></a>
+                        <a href="champions/delete/{{this._id}}" class="btn btn-danger text-light" onclick="return confirmDelete()"><i class="fa fa-trash" aria-hidden="true"></i></a>
+                        <a href="champions/privateSkin/{{this._id}}" class="btn btn-warning text-light"><i class="fas fa-tshirt"></i></a>
+                    </td>
+                {{/if}}
+            </tr>
+            </tbody>
+        {{/each}}
     </table>
 </div>

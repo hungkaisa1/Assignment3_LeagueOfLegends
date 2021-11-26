@@ -64,7 +64,6 @@ passport.use(new gitHub({
 var indexRouter = require('./controllers/index');
 var usersRouter = require('./controllers/users');
 var championsRouter = require('./controllers/champions');
-var skinRouter = require('./controllers/skins');
 
 
 
@@ -93,7 +92,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/champions', championsRouter);
-app.use('/skins', skinRouter);
 
 //mongodb connect w/mongoose
 const mongoose =  require('mongoose')

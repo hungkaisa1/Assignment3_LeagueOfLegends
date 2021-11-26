@@ -1,6 +1,5 @@
 // link to mongoose
 const mongoose = require('mongoose')
-const buffer = require("buffer");
 
 //define a schema for champions
 var championSchema = new mongoose.Schema({
@@ -32,7 +31,14 @@ var championSchema = new mongoose.Schema({
         type: Number,
         required: true,
         trim: true
-    }
+    },
+    skins: [{
+        skin_name: String,
+        skin_release_date: String,
+        skin_type: String,
+        skin_rp: Number,
+        skin_img: String
+    }]
 })
 
 //make this model public with the name of Champion
