@@ -1,6 +1,10 @@
+<br/>
+{{#if user}}
+    <h5><a href="#add_new_skin">Add a new skin for {{champion.champion_name}}</a></h5>
+    <br/>
+{{/if}}
 <div class="champ_img">
     <img src="/images/{{champion.champion_img}}" alt="...">
-    <h1>{{champion.champion_name}}</h1>
 </div>
 <hr id="hr">
 
@@ -9,7 +13,7 @@
         <div class="col-md-6 offset-md-3">
             <div class="card col-lg h-100">
                 <div class="card-body">
-                    <h2>{{this.skin_name}}</h2>
+                    <h2 id="skin_name">{{this.skin_name}}</h2>
                     <img id="default_skin_img" src="/images/{{this.skin_img}}" alt="...">
                     <h4>Type: {{this.skin_type}}</h4>
                     <h4>Release Date: {{this.skin_release_date}}</h4>
@@ -20,42 +24,42 @@
     {{/each}}
 </section>
 <hr id="hr">
-
-<h1 class="text_color">Add a new Skin for {{champion.champion_name}}</h1>
-<form method="post" enctype="multipart/form-data" action="/champions/add-skins/{{champion._id}}">
-    <!-- Skin Name -->
-    <fieldset class="form-group">
-        <label for="skin_name" class="control-label col-2"> Name: *</label>
-        <input class="form-control" name="skin_name" id="skin_name" required/>
-    </fieldset>
-    <!-- Skin Release Date -->
-    <fieldset>
-        <label for="skin_release_date" class="control-label col-2"> Release Date: *</label>
-        <input class="form-control" name="skin_release_date" id="skin_release_date" required/>
-    </fieldset>
-    <!-- Skin Type -->
-    <fieldset>
-        <label for="skin_type" class="control-label col-2"> Type: *</label>
-        <select class="form-control" name="skin_type" id="skin_type" required>
-            <option value="Ultimate">Ultimate</option>
-            <option value="Mythic">Mythic</option>
-            <option value="Legendary">Legendary</option>
-            <option value="Epic">Epic</option>
-            <option value="Legacy">Legacy</option>
-        </select>
-    </fieldset>
-    <!-- Skin RP -->
-    <fieldset>
-        <label for="skin_rp" class="control-label col-2"> RP: *</label>
-        <input class="form-control" name="skin_rp" id="skin_rp" type="number" required min="0"/>
-    </fieldset>
-    <!-- Image -->
-    <fieldset>
-        <label for="image">Upload Image</label>
-        <input type="file" name="image" id="image" class="form-control-file" required>
-    </fieldset>
-    <div class="offset-2">
-        <button class="btn btn-primary">Save</button>
-    </div>
-</form>
+<section id="add_new_skin">
+    <form method="post" enctype="multipart/form-data" action="/champions/add-skins/{{champion._id}}" class="frm_form">
+        <h1 class="text_color">Add a new Skin for {{champion.champion_name}}</h1>
+        <!-- Skin Name -->
+        <fieldset class="form-group">
+            <label for="skin_name" class="control-label col-2"> Name: *</label>
+            <input class="form-control" name="skin_name" id="skin_name" required/>
+        </fieldset>
+        <!-- Skin Release Date -->
+        <fieldset class="form-group">
+            <label for="skin_release_date" class="control-label col-2"> Release Date: *</label>
+            <input class="form-control" name="skin_release_date" id="skin_release_date" required/>
+        </fieldset>
+        <!-- Skin Type -->
+        <fieldset class="form-group">
+            <label for="skin_type" class="control-label col-2"> Type: *</label>
+            <select class="form-control" name="skin_type" id="skin_type" required>
+                <option value="Ultimate">Ultimate</option>
+                <option value="Mythic">Mythic</option>
+                <option value="Legendary">Legendary</option>
+                <option value="Epic">Epic</option>
+                <option value="Legacy">Legacy</option>
+            </select>
+        </fieldset>
+        <!-- Skin RP -->
+        <fieldset class="form-group">
+            <label for="skin_rp" class="control-label col-2"> RP: *</label>
+            <input class="form-control" name="skin_rp" id="skin_rp" type="number" required min="0"/>
+        </fieldset>
+        <!-- Image -->
+        <fieldset class="form-group">
+            <label for="image">Upload Image</label>
+            <input type="file" name="image" id="image" class="form-control-file" required>
+        </fieldset>
+        <div class="offset-2">
+            <button class="btn btn-primary">Save</button>
+        </div>
+    </form>
 </section>

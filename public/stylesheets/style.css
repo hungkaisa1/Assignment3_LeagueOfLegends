@@ -54,14 +54,11 @@ a {
 .card-body {
   text-align: center;
   color: blue;
+  background-color: #E2E2E2;
 }
 
 .card-group {
   margin-bottom: 20px;
-}
-
-.card-body {
-  background-color: #E2E2E2;
 }
 
 #title_about {
@@ -131,4 +128,8 @@ a {
   display: block;
   margin-left: auto;
   margin-right: auto;
+}
+
+#skin_name {
+  color: green;
 }
