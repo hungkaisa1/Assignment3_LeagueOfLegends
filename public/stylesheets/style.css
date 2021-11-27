@@ -1,11 +1,14 @@
 body {
   padding: 50px;
   font: 16px "Lucida Grande", Helvetica, Arial, sans-serif;
-  background-color: #EFFFFF;
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5)), url(../images/img_background.jpg);
+  background-color: black;
+  background-repeat: no-repeat;
+  color: white;
 }
 
 a {
-  color: #00B7FF;
+  color: #5BD4E6;
 }
 
 .table-responsive{
@@ -15,6 +18,12 @@ a {
 #default_img_size{
   width: 64px;
   height: 64px;
+}
+
+#default_img_size:hover {
+  -ms-transform: scale(2.0);
+  -webkit-transform: scale(2.0);
+  transform: scale(2.0);
 }
 .champ_img {
   text-align: center;
@@ -44,6 +53,7 @@ a {
 
 .card-body {
   text-align: center;
+  color: blue;
 }
 
 .card-group {
@@ -52,4 +62,73 @@ a {
 
 .card-body {
   background-color: #E2E2E2;
+}
+
+#title_about {
+  text-align: center;
+  margin-top: 15px;
+}
+#img_about1 {
+  display: block;
+  margin: 15px auto 15px;
+  width: 800px;
+  height: 512px;
+}
+
+#color_red {
+  color: #FFFF21;
+}
+#td_index {
+  color: white;
+}
+
+.text_color {
+  color: red;
+}
+
+.form-group label {
+  color: cyan;
+}
+
+.form-control {
+  width: 40%;
+}
+
+.footer {
+  text-align: center;
+  background-color: grey;
+  margin-top: 20px;
+  height: 75px;
+  position: relative;
+}
+
+.frm_form {
+  display: block;
+  margin-left: 500px;
+}
+
+.content_about {
+  background-color: rgba(128, 128, 128, 0.082)
+}
+#text_img {
+  text-align: center;
+}
+
+.main_content {
+  margin-top: 10px;
+  margin-left: 100px;
+  margin-right: 100px;
+}
+
+.characters:before {
+  content:"** ";
+  color: red;
+}
+
+#img_main_content_about {
+  width: 75%;
+  height: 300px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }

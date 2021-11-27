@@ -1,13 +1,13 @@
-<h1>Add a new Champion</h1>
+<h1 class="text_color">Add a new Champion</h1>
 
-<form method="post" enctype="multipart/form-data" action="/champions/create">
+<form method="post" enctype="multipart/form-data" action="/champions/create" class="frm_form">
         <!-- Champion name -->
     <fieldset class="form-group">
         <label for="name" class="control-label col-2"> Name: *</label>
         <input class="form-control" name="name" id="name" required/>
     </fieldset>
         <!-- Champion Classes -->
-    <fieldset>
+    <fieldset class="form-group">
         <label for="classes" class="control-label col-2"> Choose classes: *</label>
         <select class="form-control" name="classes" id="classes" required>
             <option value="Artillery">Artillery</option>
@@ -27,12 +27,12 @@
         </select>
     </fieldset>
         <!-- Champion Release Date -->
-    <fieldset>
+    <fieldset class="form-group">
         <label for="release" class="control-label col-2"> Release Date: *</label>
         <input class="form-control" name="release" id="release" required/>
     </fieldset>
         <!-- Champion Blue Essence -->
-    <fieldset>
+    <fieldset class="form-group">
         <label for="essence" class="control-label col-2"> Blue Essence: *</label>
         <select class="form-control" name="essence" id="essence" required>
             <option value="450">450</option>
@@ -43,7 +43,7 @@
         </select>
     </fieldset>
         <!-- Champion RP -->
-    <fieldset>
+    <fieldset class="form-group">
         <label for="rp" class="control-label col-2"> RP: *</label>
         <select class="form-control" name="rp" id="rp" required>
             <option value="260">260</option>
@@ -54,10 +54,11 @@
         </select>
     </fieldset>
         <!-- Image -->
-    <fieldset>
+    <fieldset class="form-group">
         <label for="image">Upload Image</label>
         <input type="file" name="image" id="image" class="form-control-file">
     </fieldset>
+    <br/>
     <div class="offset-2">
         <button class="btn btn-primary">Save</button>
     </div>

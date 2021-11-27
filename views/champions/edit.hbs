@@ -1,4 +1,4 @@
-<h1>Edit a champion</h1>
+<h1 class="text_color">Edit a champion</h1>
 
 <form method="post">
     <!-- Champion Name -->
@@ -7,7 +7,7 @@
         <input class="form-control" name="name" id="name" disabled="readonly" value="{{champion.champion_name}}"/>
     </fieldset>
     <!-- Champion Classes -->
-    <fieldset>
+    <fieldset class="form-group">
         <label for="classes" class="control-label col-2"> Classes: *</label>
         <select class="form-control" name="classes" id="classes" value="{{champion.champion_classes}}">
             <option value="Artillery">Artillery</option>
@@ -26,12 +26,12 @@
         </select>
     </fieldset>
     <!-- Champion Release Date -->
-    <fieldset>
+    <fieldset class="form-group">
         <label for="release" class="control-label col-2"> Release Date: *</label>
         <input class="form-control" name="release" id="release" disabled="readonly" value="{{champion.champion_release_date}}"/>
     </fieldset>
     <!-- Champion Blue Essence -->
-    <fieldset>
+    <fieldset class="form-group">
         <label for="essence" class="control-label col-2"> Blue Essence: *</label>
         <select class="form-control" name="essence" id="essence" value="{{champion.champion_blue_essence}}">
             <option value="450">450</option>
@@ -42,7 +42,7 @@
         </select>
     </fieldset>
     <!-- Champion RP -->
-    <fieldset>
+    <fieldset class="form-group">
         <label for="rp" class="control-label col-2"> RP: *</label>
         <select class="form-control" name="rp" id="rp" value="{{champion.champion_rp}}">
             <option value="260">260</option>
