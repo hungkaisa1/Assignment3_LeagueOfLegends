@@ -133,3 +133,43 @@ a {
 #skin_name {
   color: green;
 }
+
+.video {
+  width: 1000px;
+  height: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+@-webkit-keyframes my {
+  0% { color: #F8CD0A; }
+  50% { color: #fff; }
+  100% { color: #F8CD0A; }
+}
+@-moz-keyframes my {
+  0% { color: #F8CD0A; }
+  50% { color: #fff; }
+  100% { color: #F8CD0A; }
+}
+@-o-keyframes my {
+  0% { color: #F8CD0A; }
+  50% { color: #fff; }
+  100% { color: #F8CD0A; }
+}
+@keyframes my {
+  0% { color: #F8CD0A; }
+  50% { color: #fff; }
+  100% { color: #F8CD0A; }
+}
+#text_index {
+  text-align: center;
+  margin-top: 15px;
+  margin-bottom: -40px;
+  font-size:24px;
+  font-weight:bold;
+  -webkit-animation: my 700ms infinite;
+  -moz-animation: my 700ms infinite;
+  -o-animation: my 700ms infinite;
+  animation: my 700ms infinite;
+}
