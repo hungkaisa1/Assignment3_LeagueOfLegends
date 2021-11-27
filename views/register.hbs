@@ -1,25 +1,26 @@
-<h1>Register</h1>
-
-<form method="post">
-    <fieldset class="form-group">
-        <label for="username" class="col-2 control-label">Username: *</label>
-        <input name="username" id="username" required type="email"
-               placeholder="email@email.com" />
-    </fieldset>
-    <fieldset class="form-group">
-        <label for="password" class="col-2 control-label">Password: *</label>
-        <input name="password" id="password" type="password" required
-               pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"  />
-    </fieldset>
-    <fieldset class="form-group">
-        <label for="confirm" class="col-2 control-label">Confirm: *</label>
-        <input name="confirm" id="confirm" type="password" required
-               pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" />
-    </fieldset>
-    <fieldset class="form-group">
-        <button class="btn btn-info offset-3">Register</button>
-        <a class="btn btn-info" href="/github">Register with Github</a>
-        <hr />
-        Already have an account?  <a href="/login" title="Login">Login</a>
-    </fieldset>
-</form>
+<div class="login-container text-c animated flipInX">
+    <div>
+        <h1 class="logo-badge text-whitesmoke"><span class="fa fa-user-circle"></span></h1>
+    </div>
+    <p class="text_title">Create an account</p>
+    <div class="container-content">
+        <form class="margin-t" method="post">
+            <div class="form-group">
+                <input class="form-control" name="username" id="username" required type="email" placeholder="Email" />
+            </div>
+            <div class="form-group">
+                <input class="form-control" name="password" id="password" type="password" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" placeholder="Password"  />
+            </div>
+            <div class="form-group">
+                <input class="form-control" name="confirm" id="confirm" type="password" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" placeholder="Re-password"/>
+            </div>
+            <button class="form-button button-l margin-b">Sign Up</button>
+            <br/>
+            <br/>
+            Already have an account?  <a href="/login" title="Login">Login</a>
+            <hr>
+            <p style="text-align: center;">Or sign up with another account</p>
+            <a href="/github" title="Github"><i class="fa fa-github" style="font-size:48px;color:red"></i></a>
+        </form>
+    </div>
+</div>

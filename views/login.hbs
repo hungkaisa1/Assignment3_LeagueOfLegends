@@ -1,26 +1,33 @@
-<h1>Login</h1>
 {{#if messages}}
     <div class="alert alert-danger">
         Invalid Login
     </div>
 {{else }}
+    <br/>
     <div class="aler alert-info">
         Please Enter your Credentials
     </div>
 {{/if }}
-<form method="post">
-    <fieldset class="form-group">
-        <label for="username" class="col-2 control-label">Username: *</label>
-        <input name="username" id="username" required />
-    </fieldset>
-    <fieldset class="form-group">
-        <label for="password" class="col-2 control-label">Password: *</label>
-        <input name="password" id="password" type="password" required />
-    </fieldset>
-    <fieldset class="form-group">
-        <button class="btn btn-info offset-3">Login</button>
-        <a class="btn btn-info" href="/github">Login with Github</a>
-        <hr />
-        Need an account?  <a href="/register" title="Register">Register</a>
-    </fieldset>
-</form>
+<div class="login-container text-c animated flipInX">
+    <div>
+        <h1 class="logo-badge text-whitesmoke"><span class="fa fa-user-circle"></span></h1>
+    </div>
+    <p class="text_title">Sign In</p>
+    <div class="container-content">
+        <form class="margin-t" method="post">
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="Email" name="username" id="username" required="">
+            </div>
+            <div class="form-group">
+                <input type="password" class="form-control" placeholder="Password" name="password" id="password" required="">
+            </div>
+            <button class="form-button button-l margin-b">Sign In</button>
+            <br/>
+            <br/>
+            <p class="text-whitesmoke text-center"><small>Do not have an account?</small></p>
+            <a class="text_signup" href="/register"><small>Sign Up</small></a>
+            <hr>
+            <a href="/github" title="Github"><i class="fa fa-github" style="font-size:48px;color:red"></i></a>
+        </form>
+    </div>
+</div>
