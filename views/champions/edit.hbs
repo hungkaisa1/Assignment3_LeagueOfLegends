@@ -1,14 +1,18 @@
-<form method="post" class="frm_form">
+<form method="post"  class="create_edit_form">
     <h1 class="text_color">Edit {{champion.champion_name}} champion</h1>
-    <!-- Champion Name -->
-    <fieldset class="form-group">
-        <label for="name" class="control-label col-2"> Name: *</label>
-        <input class="form-control" name="name" id="name" disabled="readonly" value="{{champion.champion_name}}"/>
-    </fieldset>
-    <!-- Champion Classes -->
-    <fieldset class="form-group">
-        <label for="classes" class="control-label col-2"> Classes: *</label>
-        <select class="form-control" name="classes" id="classes" value="{{champion.champion_classes}}">
+    <!-- NAME -->
+    <label>
+        <p class="label-txt">CHAMPION NAME</p>
+        <input type="text" class="input" name="name" id="name" disabled="readonly" value="{{champion.champion_name}}">
+        <div class="line-box">
+            <div class="line"></div>
+        </div>
+    </label>
+    <!-- CLASSES -->
+    <label>
+        <p class="label-txt">SELECT CLASSES</p>
+        <select type="text" class="input" name="classes" id="classes">
+            <option value="" selected disabled hidden>{{champion.champion_classes}}</option>
             <option value="Artillery">Artillery</option>
             <option value="Assassin">Assassin</option>
             <option value="Battlemage">Battlemage</option>
@@ -23,36 +27,47 @@
             <option value="Vanguard">Vanguard</option>
             <option value="Warden">Warden</option>
         </select>
-    </fieldset>
-    <!-- Champion Release Date -->
-    <fieldset class="form-group">
-        <label for="release" class="control-label col-2"> Release Date: *</label>
-        <input class="form-control" name="release" id="release" disabled="readonly" value="{{champion.champion_release_date}}"/>
-    </fieldset>
-    <!-- Champion Blue Essence -->
-    <fieldset class="form-group">
-        <label for="essence" class="control-label col-2"> Blue Essence: *</label>
-        <select class="form-control" name="essence" id="essence" value="{{champion.champion_blue_essence}}">
+        <div class="line-box">
+            <div class="line"></div>
+        </div>
+    </label>
+    <!-- RELEASE DATE -->
+    <label>
+        <p class="label-txt">RELEASE DATE</p>
+        <input type="text" class="input" name="release" id="release" disabled="readonly" value="{{champion.champion_release_date}}">
+        <div class="line-box">
+            <div class="line"></div>
+        </div>
+    </label>
+    <!-- BLUE ESSENCE -->
+    <label>
+        <p class="label-txt">SELECT BLUE ESSENCE</p>
+        <select type="text" class="input" name="essence" id="essence">
+            <option value="" selected disabled hidden>{{champion.champion_blue_essence}}</option>
             <option value="450">450</option>
             <option value="1350">1350</option>
             <option value="3150">3150</option>
             <option value="4800">4800</option>
             <option value="6300">6300</option>
         </select>
-    </fieldset>
-    <!-- Champion RP -->
-    <fieldset class="form-group">
-        <label for="rp" class="control-label col-2"> RP: *</label>
-        <select class="form-control" name="rp" id="rp" value="{{champion.champion_rp}}">
+        <div class="line-box">
+            <div class="line"></div>
+        </div>
+    </label>
+    <!-- RP -->
+    <label>
+        <p class="label-txt">SELECT RP</p>
+        <select type="text" class="input" name="rp" id="rp">
+            <option value="" selected disabled hidden>{{champion.champion_rp}}</option>
             <option value="260">260</option>
             <option value="585">585</option>
             <option value="790">790</option>
             <option value="880">880</option>
             <option value="975">975</option>
         </select>
-    </fieldset>
-    <div class="offset-2">
-        <button class="btn btn-primary">Save</button>
-    </div>
+        <div class="line-box">
+            <div class="line"></div>
+        </div>
+    </label>
+    <button>Edit</button>
 </form>
-

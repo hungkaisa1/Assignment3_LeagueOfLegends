@@ -10,8 +10,7 @@
 
 <section class="row card-group">
     {{#each champion.skins}}
-        <div class="col-md-6 offset-md-3">
-            <div class="card col-lg h-100">
+            <div class="col-6 .col-md-4">
                 <div class="card-body">
                     <h2 id="skin_name">{{this.skin_name}}</h2>
                     <img id="default_skin_img" src="/images/{{this.skin_img}}" alt="...">
@@ -19,47 +18,59 @@
                     <h4>Release Date: {{this.skin_release_date}}</h4>
                     <h4>RP: {{this.skin_rp}}</h4>
                 </div>
+                <br/>
             </div>
-        </div>
     {{/each}}
+
 </section>
 <hr id="hr">
+
 <section id="add_new_skin">
-    <form method="post" enctype="multipart/form-data" action="/champions/add-skins/{{champion._id}}" class="frm_form">
+    <form method="post" enctype="multipart/form-data" action="/champions/add-skins/{{champion._id}}" class="create_edit_form">
         <h1 class="text_color">Add a new Skin for {{champion.champion_name}}</h1>
-        <!-- Skin Name -->
-        <fieldset class="form-group">
-            <label for="skin_name" class="control-label col-2"> Name: *</label>
-            <input class="form-control" name="skin_name" id="skin_name" required/>
-        </fieldset>
-        <!-- Skin Release Date -->
-        <fieldset class="form-group">
-            <label for="skin_release_date" class="control-label col-2"> Release Date: *</label>
-            <input class="form-control" name="skin_release_date" id="skin_release_date" required/>
-        </fieldset>
-        <!-- Skin Type -->
-        <fieldset class="form-group">
-            <label for="skin_type" class="control-label col-2"> Type: *</label>
-            <select class="form-control" name="skin_type" id="skin_type" required>
+        <!-- SKIN NAME -->
+        <label>
+            <p class="label-txt">ENTER SKIN NAME</p>
+            <input type="text" class="input" name="skin_name" id="skin_name" required>
+            <div class="line-box">
+                <div class="line"></div>
+            </div>
+        </label>
+        <!-- SKIN RELEASE DATE -->
+        <label>
+            <p class="label-txt">ENTER RELEASE DATE</p>
+            <input type="text" class="input" name="skin_release_date" id="skin_release_date" required>
+            <div class="line-box">
+                <div class="line"></div>
+            </div>
+        </label>
+        <!-- SKIN TYPE -->
+        <label>
+            <p class="label-txt">SELECT TYPE</p>
+            <select type="text" class="input" name="skin_type" id="skin_type">
                 <option value="Ultimate">Ultimate</option>
                 <option value="Mythic">Mythic</option>
                 <option value="Legendary">Legendary</option>
                 <option value="Epic">Epic</option>
                 <option value="Legacy">Legacy</option>
             </select>
-        </fieldset>
-        <!-- Skin RP -->
-        <fieldset class="form-group">
-            <label for="skin_rp" class="control-label col-2"> RP: *</label>
-            <input class="form-control" name="skin_rp" id="skin_rp" type="number" required min="0"/>
-        </fieldset>
-        <!-- Image -->
-        <fieldset class="form-group">
-            <label for="image">Upload Image</label>
-            <input type="file" name="image" id="image" class="form-control-file" required>
-        </fieldset>
-        <div class="offset-2">
-            <button class="btn btn-primary">Save</button>
-        </div>
+            <div class="line-box">
+                <div class="line"></div>
+            </div>
+        </label>
+        <!-- SKIN RP -->
+        <label>
+            <p class="label-txt">ENTER RP: </p>
+            <input type="text" class="input" name="skin_rp" id="skin_rp" required>
+            <div class="line-box">
+                <div class="line"></div>
+            </div>
+        </label>
+        <!-- IMAGE -->
+        <label>
+            <p class="label-txt">CHOOSE FILE</p>
+            <input type="file" class="input" name="image" id="image">
+        </label>
+        <button>Create</button>
     </form>
 </section>
