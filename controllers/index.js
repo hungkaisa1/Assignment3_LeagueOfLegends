@@ -3,6 +3,8 @@ var router = express.Router();
 
 // passport for auth
 const passport = require('passport')
+
+//add model-user ref
 const User = require('../models/user')
 
 /* GET home page. */
@@ -14,8 +16,7 @@ router.get('/', function(req, res, next) {
 });
 
 
-// GET: /About
-
+// GET: /about
 router.get('/about', (req,res) =>{
   res.render('about', {
     title: 'About',
@@ -41,7 +42,7 @@ router.post('/register', (req, res) => {
         message: err
       })
     }else{
-      // registration succeeded, log user in and loan main champion page.
+      // registration succeeded, log user in and load main champion page.
       req.login(newUser, (err) => {
         res.redirect('/champions')
       })

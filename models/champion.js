@@ -32,6 +32,7 @@ var championSchema = new mongoose.Schema({
         required: true,
         trim: true
     },
+    // in case, one to many relationship. 1 champion has many skins, 1 skin belongs to unique a champion.
     skins: [{
         skin_name: String,
         skin_release_date: String,

@@ -1,10 +1,10 @@
 //use express
-let express = require('express')
+let express = require('express') // npm i express
 
 //instantiate an express router to parse and direct url requests
 const router = express.Router()
 
-//add model ref
+//add model-champion ref
 const Champion = require('../models/champion')
 
 
@@ -22,8 +22,7 @@ function authCheck(req, res, next){
 }
 
 // Multer - Upload image
-const multer = require('multer')
-const Skin = require("../models/champion");
+const multer = require('multer') //npm i --save multer
 
 // Define storage for the images
 const storage = multer.diskStorage({
@@ -72,7 +71,7 @@ router.get('/create', authCheck, (req, res) =>{
     })
 })
 
-//POST: //champions/create => Process from submission & save new champion document
+//POST: //champions/create => Process from submission & save new champion document, upload file with name = 'image'
 router.post('/create', upload.single('image'), authCheck, (req, res) =>{
     // use Mongoose model to create a new Champion document
     Champion.create({
